@@ -1,2 +1,6 @@
-# SP_CBDH---Nh-n-di-n-khu-n-m-t-i-m-danh
-Vietnamese: Nhận diện khuôn mặt điểm danh
+# Student Attendance Using Recognition Technology
+Vietnamese: Điểm danh sinh viên bằng công nghệ nhận diện
+
+Usage:
+- Python
+- Flask
