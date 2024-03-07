@@ -7,9 +7,9 @@ Usage:
 
 Danh sách công việc:
 - Âm thanh:
-- [x] Âm thanh login. - 1:00 07/03/2024
-- [x] Âm thanh logout. - 1:00 07/03/2024
-- [x] Âm thanh điểm danh thành công. - 1:00 07/03/2024
+- ✅ Âm thanh login. - 1:00 07/03/2024
+- ✅ Âm thanh logout. - 1:00 07/03/2024
+- ✅ Âm thanh điểm danh thành công. - 1:00 07/03/2024
 
 - Giao diện giáo viên
 + [ ] Thêm lớp học.
