@@ -5,7 +5,7 @@ Usage:
 - Python
 - Flask
 
-Danh sách công việc:
+## Danh sách công việc:
 - Âm thanh:
 - ✅ Âm thanh login. - 1:00 07/03/2024
 - ✅ Âm thanh logout. - 1:00 07/03/2024
@@ -14,9 +14,9 @@ Danh sách công việc:
 - Giao diện giáo viên
 + [ ] Thêm lớp học.
 
-Chức năng:
+## Chức năng:
 - [ ] Chức năng xuất excel.
 
-Hướng tương lai
+## Hướng tương lai
 - [ ] Do cự ly
 
