@@ -12,9 +12,10 @@ Danh sách công việc:
 + Âm thanh điểm danh thành công [x] - 1:00 07/03/2024
 
 - Giao diện giáo viên
-+ Thêm lớp học
++ Thêm lớp học [ ]
 
-- Chức năng xuất excel
+Chức năng:
+- Chức năng xuất excel [ ]
 
 Hướng tương lai
 - Do cự ly
