@@ -15,7 +15,8 @@ Usage:
 + ✅ Thêm lớp học. - 13:00 08/03/2024
 
 ## Chức năng:
-- ✅ Chức năng xuất excel. - 9:17 09/03/2024
+- [ ] Thêm buổi học cho một lớp học. 
+- ✅ Chức năng xuất excel. - 09:17 09/03/2024
 
 ## Hướng tương lai
 - [ ] Giáo viên tạo phòng điểm danh riêng.
