@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+</head>
+<style>
+/* .alert.fade {
+  transition: opacity 0.5s linear;
+}
+
+.alert.fade.show {
+  opacity: 1;
+}
+
+.alert.fade.hide {
+  opacity: 0;
+} */
+</style>
+<body>
+{% include "navbar.html" %}
+
+<div class="container">
+  {% for item in data %}
+  <form action="update?idDayClass={{item[0]}}" method="post" class="mt-2">
+      <div class="col-xs-3">
+        <label for=""><b>ID: </b></label>
+        <input type="text" class="form-control" value="{{item[0]}}" readonly tabindex="-1">
+      </div> <br>
+      <div class="col-xs-3">
+        <label for=""><b>Tên buổi: </b></label>
+        <input type="text" class="form-control" value="{{item[2]}}" name="nameDayClass" id="nameDayClass" tabindex="1"> <br>
+      </div>
+      <div class="col-xs-3">
+        <label for=""><b>Thời gian buổi: </b></label>
+        <input type="datetime-local" class="form-control" value="{{item[3]}}" name="datetime" id="datetime" tabindex="2"> <br>
+      </div>
+      
+      {% if alert_message %}
+      <script>
+        setTimeout(function() {
+            document.getElementById("alert").style.display = "none";
+        }, {{ alert_duration }}000);
+
+        function clearSessionVariable() {
+          fetch('/clear_session_variable')
+              .then(response => {
+                  if (response.ok) {
+                      // Cập nhật UI, ví dụ ẩn thông báo
+                      document.getElementById('alert').style.display = 'none';
+                  } else {
+                      // Xử lý lỗi
+                      console.log('Error clearing session variable');
+                  }
+              });
+        }
+        clearSessionVariable();
+    </script>
+      <div id="alert" 
+        class="alert alert-{{ alert_type }}" 
+        style="display: block; transition: opacity {{ alert_duration }}s ease-out;"
+        ontransitionend="this.style.display='none'">
+        {{ alert_message }}
+      </div>
+      {% endif %}
+      
+      <a class="btn btn-primary" href="/DayClass/panel?idCourseClass={{item[1]}}" tabindex="4">Quay lại</a>
+      <input type="submit" value="Lưu" class="btn btn-success" tabindex="3">
+  </form>
+  {% endfor %}
+</div>
+</body>
+</html>

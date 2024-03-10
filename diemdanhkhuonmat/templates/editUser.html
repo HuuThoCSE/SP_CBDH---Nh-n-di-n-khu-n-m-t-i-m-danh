@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+</head>
+<body>
+
+{% include "navbar.html" %}
+
+<section class="py-1">
+    <div class="row mt-5">
+        <div class="col-lg-8 offset-lg-2">
+            <h3>Dữ liệu sinh viên</h3>
+            <hr>
+            {% for item in data %}
+            <label for="">ID: </label> <b>{{item[0]}}</b> <br>
+            <form action="/editUser" method="POST">
+                <input type="hidden" name="idUser" value="{{item[0]}}">
+                <label for="">Name: </label> 
+                <input type="text" name="FirstName" id="" value="{{item[1]}}">
+                <input type="hidden" name="action" value="update_name">
+                <input type="submit" value="Thay đổi" class="btn btn-warning">
+            </form>
+            {% endfor %}
+
+            <br>
+            <table class="table" style="width: 80%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Thuộc tổ</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{item[2]}}</td>
+                            <td><a href="/editUser?idUser={{item[0]}}" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+</head>
+<body>
+
+{% include "navbar.html" %}
+
+<section class="py-1">
+    <div class="row mt-5">
+        <div class="col-lg-8 offset-lg-2">
+            <h3>Dữ liệu sinh viên</h3>
+            <hr>
+            <div class="row">
+                <a href="/addprsn" type="button" class="btn btn-success btn-lg"><b>Thêm dữ liệu</b></a>
+            </div>
+
+            <br>
+            <h1>Ngày điểm danh lớp: </h1>
+            <table class="table" style="width: 80%">
+                <thead>
+                    <tr>
+                        <th>Mã buổi học</th>
+                        <th>Thời gian buổi học</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in data %}
+                        <tr>
+                            <td>{{item[0]}}</i></a></td>
+                            <td>{{item[1]}}</td>
+                            <td>{{item[2]}}</td>
+                            <td><a href="/fr_page?idDayClass={{item[0]}}" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a></td>
+                            <!-- <td><a href="/fr_page" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a></td> -->
+                            <!-- <td><a href="/enrolldayclass?idClass={{item[0]}}&idDayClass={{3}}" type="button" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a></td> -->
+                        </tr>
+                    {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

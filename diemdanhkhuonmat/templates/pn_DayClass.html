@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "head.html" %}
+</head>
+
+<body>
+
+{% include "navbar.html" %}
+
+<div class="container">
+    <div class="row mt-2">
+        <form action="" method="post" class="form-inline col-sm-6"> 
+           <input class="form-control" type="text" name="" id="" placeholder="">
+           <input class="btn btn-success" type="submit" value="Tìm kiếm">
+        </form>
+    </div>
+    
+    <div class="row mt-2">
+      {% if namePerm %}
+      <a class="btn btn-primary" href="/{{namePerm}}CourseClass" tabindex="4">Quay lại</a>
+      {% else %}
+      <a class="btn btn-primary" href="/CourseClass" tabindex="4">Quay lại</a>
+      {% endif %}
+
+      <button class="btn btn-success ml-2" data-toggle="modal" data-target="#inputClass">Thêm buổi điểm danh</button>
+      <!-- <button class="btn btn-primary ml-2" id="micro"><i class="bi-mic-fill"></i></button> -->
+    </div>
+    <table class="table mt-2">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Mã lớp</th>
+                <th>Tên lớp</th>
+                <th>Thời gian bắt đầu</th>
+                <!-- <th>Thời gian kết thúc</th> -->
+                <th>Thao tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+                <tr>
+                    <td>{{item[0]}}</td>
+                    <td>{{item[5]}}</td>
+                    <td>{{item[2]}}</td>
+                    <td>{{item[3]}}</td>
+                    <!-- <td>{{item[4]}}</td> -->
+                    <td>
+                      <a href="edit?idDayClass={{item[0]}}" type="button" class="btn btn-sm border">
+                        <img src="static\gif\edit.gif" width="25px">
+                      </a>
+                      <a href="/fr_page?idDayClass={{item[0]}}" type="button" class="btn btn-sm border">
+                        <img src="static\gif\arrow.gif" width="25px">
+                      </a>
+                      <a href="/exportEnroll?idDayClass={{item[0]}}" type="button" class="btn btn-sm border">
+                        <img src="static\gif\download.gif" width="25px">
+                      </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="inputClass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form action="add?idCourseClass={{ idCourseClass }}" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Thêm buổi điểm danh</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" value="" hidden>
+            <label for=""><b>Tên buổi điểm danh</b></label>
+            <input type="text" id="nameDayClass" name="nameDayClass" class="form-control">
+            <label for=""><b>Ngày giờ điểm danh</b></label>
+            <input type="datetime-local" class="form-control" id="datetimeStart" name="datetimeStart">
+            <label for=""><b>Ngày giờ đóng điểm danh</b></label>
+            <input type="datetime-local" class="form-control" id="datetimeEnd" name="datetimeEnd">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+            <input type="submit" name="" id="" value="Thêm" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+<script>
+
+$('#inputClass').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+})
+
+</script>
+</html>
